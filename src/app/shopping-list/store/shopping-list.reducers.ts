@@ -11,7 +11,7 @@ export interface State {
 
 
 export interface AppState {
-  shoppinList: State;
+  shoppingList: State;
 }
 
 
