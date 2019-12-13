@@ -11,10 +11,9 @@ import { Store } from '@ngrx/store';
 import { AuthService } from './auth.service';
 import * as fromApp from '../store/app.reducer';
 
-
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private authService: AuthService, private store: Store<fromApp.AppState>) { }
+  constructor(private authService: AuthService, private store: Store<fromApp.AppState>) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return this.store.select('auth').pipe(

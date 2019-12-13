@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
     private authService: AuthService,
     private router: Router,
     private store: Store<fromApp.AppState>
-  ) { }
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
