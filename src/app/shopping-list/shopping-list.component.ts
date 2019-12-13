@@ -19,7 +19,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   constructor(
     private loggingService: LoggingService,
     private store: Store<fromApp.AppState>
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.ingredients = this.store.select('shoppingList');
@@ -35,7 +35,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   onEditItem(index: number) {
     // this.slService.startedEditing.next(index);
-    this.store.dispatch(new ShoppingListActions.StartEdit(index));
+    this.store.dispatch(ShoppingListActions.startEdit({ index: index }));
   }
 
   ngOnDestroy() {
