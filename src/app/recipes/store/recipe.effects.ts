@@ -9,6 +9,10 @@ import { Recipe } from '../recipe.model';
 import * as fromApp from '../../store/app.reducer';
 import { environment } from '../../../environments/environment';
 
+
+const API_URL = environment.firebaseUrl;
+
+
 @Injectable()
 export class RecipeEffects {
   @Effect()
@@ -16,7 +20,7 @@ export class RecipeEffects {
     ofType(RecipesActions.FETCH_RECIPES),
     switchMap(() => {
       return this.http.get<Recipe[]>(
-        environment.firebaseUrl
+        `${API_URL}/recipes.json`
       );
     }),
     map(recipes => {
@@ -38,7 +42,7 @@ export class RecipeEffects {
     withLatestFrom(this.store.select('recipes')),
     switchMap(([actionData, recipesState]) => {
       return this.http.put(
-        environment.firebaseUrl,
+        `${API_URL}/recipes.json`,
         recipesState.recipes
       );
     })

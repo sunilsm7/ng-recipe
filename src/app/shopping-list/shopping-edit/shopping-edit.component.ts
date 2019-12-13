@@ -20,7 +20,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<fromApp.AppState>
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.subscription = this.store
